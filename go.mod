@@ -6,7 +6,7 @@ require (
 	github.com/fortytw2/leaktest v1.3.0 // indirect
 	github.com/mailru/easyjson v0.7.6 // indirect
 	github.com/olivere/elastic v6.2.35+incompatible
-	github.com/sirupsen/logrus v1.4.2
+	github.com/sirupsen/logrus v1.7.0
 	github.com/spf13/viper v1.7.1
 	go.mongodb.org/mongo-driver v1.4.5
 	gopkg.in/sohlich/elogrus.v3 v3.0.0-20180410122755-1fa29e2f2009
