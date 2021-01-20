@@ -1,4 +1,4 @@
-package yidun
+package grpc
 
 import (
 	"sync"
