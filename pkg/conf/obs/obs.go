@@ -17,11 +17,9 @@ type obsConfig struct {
 	SK string `mapstructure:"sk"`
 
 	Bucket   string `mapstructure:"bucket"`
-	BucketG  string `mapstructure:"bucket_g"`
 	BucketG2 string `mapstructure:"bucket_g2"`
 
 	Endpoint   string `mapstructure:"endpoint"`
-	EndpointG  string `mapstructure:"endpoint_g"`
 	EndpointG2 string `mapstructure:"endpoint_g2"`
 }
 
