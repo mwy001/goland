@@ -17,7 +17,7 @@ func logCmdError(jobid string, cmd *exec.Cmd, err error) {
 	log.L().Errorf("Error execute cmd, %v, %v, jobid, %v, err, %v", cmd.Path, cmd.Args, jobid, err)
 }
 
-func executeOneCmd(jobid string, cmd *exec.Cmd) bool {
+func ExecuteOneCmd(jobid string, cmd *exec.Cmd) bool {
 	logCmdExecute(jobid, cmd)
 	err := cmd.Run()
 
@@ -31,7 +31,7 @@ func executeOneCmd(jobid string, cmd *exec.Cmd) bool {
 	return true
 }
 
-func executeOneCmdWithOutput(jobid string, cmd *exec.Cmd) (string, error) {
+func ExecuteOneCmdWithOutput(jobid string, cmd *exec.Cmd) (string, error) {
 	logCmdExecute(jobid, cmd)
 	output, err := cmd.CombinedOutput()
 
