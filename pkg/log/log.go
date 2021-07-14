@@ -30,12 +30,7 @@ func InitLogger(index string, app string) *logrus.Entry {
 	onceLog.Do(func() {
 		lg := logrus.New()
 		lg.SetReportCaller(true)
-		lg.Formatter = &logrus.TextFormatter{
-			CallerPrettyfier: func(f *runtime.Frame) (string, string) {
-				filename := path.Base(f.File)
-				return fmt.Sprintf("%s()", f.Function), fmt.Sprintf("%s:%d", filename, f.Line)
-			},
-		}
+		lg.Formatter = &logrus.JSONFormatte{}
 
 		if envconf.ElasticSearchLogEnabled() == "1" {
 			client, err := elastic.NewClient(
