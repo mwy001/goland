@@ -1,10 +1,7 @@
 package log
 
 import (
-	"fmt"
 	"os"
-	"path"
-	"runtime"
 	"sync"
 
 	"github.com/sirupsen/logrus"
@@ -30,7 +27,7 @@ func InitLogger(index string, app string) *logrus.Entry {
 	onceLog.Do(func() {
 		lg := logrus.New()
 		lg.SetReportCaller(true)
-		lg.Formatter = &logrus.JSONFormatte{}
+		lg.Formatter = &logrus.JSONFormatter{}
 
 		if envconf.ElasticSearchLogEnabled() == "1" {
 			client, err := elastic.NewClient(
