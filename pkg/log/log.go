@@ -27,7 +27,14 @@ func InitLogger(index string, app string) *logrus.Entry {
 	onceLog.Do(func() {
 		lg := logrus.New()
 		lg.SetReportCaller(true)
-		lg.Formatter = &logrus.JSONFormatter{}
+		lg.Formatter = &logrus.JSONFormatter{
+			TimestampFormat:"2006-01-02T15:04:05-0700",
+			FieldMap: logrus.FieldMap{
+	 			logrus.FieldKeyTime: "@timestamp",
+ 				logrus.FieldKeyLevel: "@level",
+				logrus.FieldKeyMsg: "@message",
+			},
+		}
 
 		if envconf.ElasticSearchLogEnabled() == "1" {
 			client, err := elastic.NewClient(
