@@ -19,6 +19,13 @@ func ElasticSearchLogEnabled() string {
 	return result
 }
 
+func LogstashLoggingEnabled() string {
+	result := getenvWithFallback("LOGSTASH_LOGGING_ENABLED", "0")
+	fmt.Printf("LOGSTASH_LOGGING_ENABLED: %v\n", result)
+
+	return result
+}
+
 func WorkingDir(fallback string) string {
 	result := getenvWithFallback("WORKING_DIR", fallback)
 	fmt.Printf("WORKING_DIR: %v\n", result)
@@ -27,9 +34,9 @@ func WorkingDir(fallback string) string {
 }
 
 func getenvWithFallback(key string, fallback string) string {
-    value := os.Getenv(key)
-    if len(value) == 0 {
-        return fallback
-    }
-    return value
+	value := os.Getenv(key)
+	if len(value) == 0 {
+		return fallback
+	}
+	return value
 }
