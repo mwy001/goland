@@ -66,7 +66,7 @@ func InitLogger(index string, app string) *logrus.Entry {
 				l.Panic(err)
 			}
 
-			hook := logrustash.New(conn, logrustash.DefaultFormatter(logrus.Fields{}))
+			hook := logrustash.New(conn, lg.Formatter)
 
 			lg.AddHook(hook)
 		}
